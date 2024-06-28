@@ -1,0 +1,19 @@
+general:
+  cooldown: "You have to wait another {time} seconds"
+  no_permissions: "&eYou do not have permission"
+  no_permission_item: "&eYou do not have permission to use this item"
+  no_permission_command: "&eYou do not have permission to perform this command"
+  command_wrong_usage: "correct usage is {usage}."
+  deny_region: "You cannot do that here!"
+  recipe_updated: "Recipe updated!"
+  recipe_not_vanilla: "&eYou can use only vanilla item for recipes"
+items_name:
+  atm: "Atm"
+  wallet: "Wallet"
+commands:
+  reload: "&2Cash reloaded!"
+  given: "{amount} of {item} given to {player}!"
+  item_not_found: "{item} not found!"
+  unknown: "&eUnknown or incomplete command!"
+  no_permissions: "&eYou do not have permission to perform this command"
+  player_command: "Only player can use this command!"

@@ -1,0 +1,87 @@
+############################################################
+# +------------------------------------------------------+ #
+# |                         Intro                        | #
+# +------------------------------------------------------+ #
+############################################################
+
+# This is the config file for Cash, developed by FrahHS.
+
+# If you already had a configuration file, be sure to recreate it before asking for help.
+
+# If you need help, you can join the community Discord: https://discord.gg/Hh9zMQnWvW.
+
+############################################################
+# +------------------------------------------------------+ #
+# |                        General                       | #
+# +------------------------------------------------------+ #
+############################################################
+
+
+# Enable or disable the plugin.
+enabled: true
+
+# Automatically check for updates.
+update-check: true
+
+# Set the language of the plugin.
+language: "en"
+
+# Prefix for plugin messages.
+prefix: "§3[§6Cash§3] §f"
+
+############################################################
+# +------------------------------------------------------+ #
+# |                       Database                       | #
+# +------------------------------------------------------+ #
+############################################################
+
+database:
+
+  # Type of database you chose to use.
+  # Supported tags are "SQLite" and "MySQL" only.
+  # NOTE: If you select "MySQL", you should have your own hosted database.
+  type: "SQLite"
+
+  # Database name; you can leave this as default except in particular cases.
+  database-name: "LightDB"
+
+  # MySQL access data.
+  # Ignored if MySQL is not selected.
+  mysql:
+    address: "localhost"    # MySQL server address.
+    port: "3306"            # MySQL server port.
+    username: ""            # Username for MySQL access.
+    password: ""            # Password for MySQL access.
+
+############################################################
+# +------------------------------------------------------+ #
+# |                        Money                         | #
+# +------------------------------------------------------+ #
+############################################################
+
+money:
+  items:
+    1_dollars:
+      name: "1$"
+      value: 1
+      custom-model-data: 3001
+    5_dollars:
+      name: "5$"
+      value: 5
+      custom-model-data: 3005
+    10_dollars:
+      name: "10$"
+      value: 10
+      custom-model-data: 3010
+    20_dollars:
+      name: "20$"
+      value: 20
+      custom-model-data: 3020
+    50_dollars:
+      name: "50$"
+      value: 50
+      custom-model-data: 3050
+    100_dollars:
+      name: "100$"
+      value: 100
+      custom-model-data: 3100
