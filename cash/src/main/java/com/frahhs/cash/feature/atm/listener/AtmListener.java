@@ -28,8 +28,7 @@ public class AtmListener extends LightListener {
 
         if(!topBlock.getType().equals(Material.AIR)) {
             e.setCancelled(true);
-            //TODO: add to messages
-            String message = "Atm need 2 block to be placed, the space on top is occupated.";
+            String message = messages.getMessage("atm.needs_2_blocks_up");
             e.getPlayer().sendMessage(message);
             return;
         }

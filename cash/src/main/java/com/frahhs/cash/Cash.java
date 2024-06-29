@@ -14,27 +14,28 @@ public final class Cash extends LightPlugin {
     @Override
     public void onLightLoad() {
         LightPlugin.getOptions().setPermissionPrefix("cash");
-        LightPlugin.getOptions().setSpigotMarketID("34315");
-        LightPlugin.getOptions().setUpdateCheck(true);
-        LightPlugin.getOptions().setGithubContentsUrl("https://api.github.com/repos/FrahHS/Robbing/contents/robbing/src/main/resources/lang");
-        LightPlugin.getOptions().setGithubUrlTemplate("https://raw.githubusercontent.com/FrahHS/Robbing/main/robbing/src/main/resources/lang/");
+        LightPlugin.getOptions().setUpdateCheck(false);
+        LightPlugin.getOptions().setSpigotMarketID(null);
+        LightPlugin.getOptions().setGithubContentsUrl("https://api.github.com/repos/LightBench/Cash/contents/cash/src/main/resources/lang");
+        LightPlugin.getOptions().setGithubUrlTemplate("https://raw.githubusercontent.com/LightBench/Cash/main/cash/src/main/resources/lang/");
     }
 
     //TODO: add a gui to make money "change"
     @Override
     public void onLightEnabled() {
-        LightPlugin.getMessagesProvider().setAutoUpdate(false);
-
-        LightPlugin.getFeatureManager().registerFeatures(new AtmFeature(), this);
-        LightPlugin.getFeatureManager().registerFeatures(new MoneyFeature(), this);
-        LightPlugin.getFeatureManager().registerFeatures(new WalletFeature(), this);
-
+        registerFeatures();
         registerCommands();
     }
 
     @Override
     public void onLightDisabled() {
 
+    }
+
+    private void registerFeatures() {
+        LightPlugin.getFeatureManager().registerFeatures(new AtmFeature(), this);
+        LightPlugin.getFeatureManager().registerFeatures(new MoneyFeature(), this);
+        LightPlugin.getFeatureManager().registerFeatures(new WalletFeature(), this);
     }
 
     private void registerCommands() {

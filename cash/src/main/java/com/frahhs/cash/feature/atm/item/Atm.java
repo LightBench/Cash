@@ -22,6 +22,11 @@ public class Atm extends LightItem {
     }
 
     @Override
+    public boolean isUnique() {
+        return false;
+    }
+
+    @Override
     public @NotNull Material getVanillaMaterial() {
         return Material.IRON_BLOCK;
     }

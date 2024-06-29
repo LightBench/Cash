@@ -57,16 +57,15 @@ public class CashCommand extends BaseCommand {
         }
 
         item_name = item_name.substring(0, 1).toUpperCase() + item_name.substring(1).toLowerCase();
-        if(customItem == null || !customItem.isGivable()) {
+        if (customItem == null || !customItem.isGivable()) {
             message = messages.getMessage("commands.item_not_found");
             message = message.replace("{item}", item_name);
             sender.sendMessage(message);
             return;
         }
 
-        ItemStack item = customItem.getItemStack();
-        item.setAmount(amount);
-        player.getPlayer().getInventory().addItem(item);
+        for(int i = 0; i < amount; i++)
+            player.getPlayer().getInventory().addItem(customItem.getItemStack());
 
         message = messages.getMessage("commands.given");
         message = message.replace("{player}", player.getPlayer().getDisplayName());

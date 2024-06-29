@@ -7,6 +7,10 @@ general:
   deny_region: "You cannot do that here!"
   recipe_updated: "Recipe updated!"
   recipe_not_vanilla: "&eYou can use only vanilla item for recipes"
+atm:
+  needs_2_blocks_up: "&eAtm need 2 block to be placed, the space on top is occupied."
+wallet:
+  only_money: "Only money can be put in the wallet!"
 items_name:
   atm: "Atm"
   wallet: "Wallet"

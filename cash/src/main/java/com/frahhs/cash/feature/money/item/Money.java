@@ -71,6 +71,11 @@ public class Money extends LightItem {
     }
 
     @Override
+    public boolean isUnique() {
+        return false;
+    }
+
+    @Override
     public @NotNull Material getVanillaMaterial() {
         return this.vanillaMaterial;
     }
