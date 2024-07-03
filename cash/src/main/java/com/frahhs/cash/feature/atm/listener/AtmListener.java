@@ -1,6 +1,7 @@
 package com.frahhs.cash.feature.atm.listener;
 
 import com.frahhs.cash.feature.atm.item.Atm;
+import com.frahhs.cash.feature.atm.mcp.AtmGUI;
 import com.frahhs.lightlib.LightListener;
 import com.frahhs.lightlib.block.LightBlock;
 import com.frahhs.lightlib.block.events.LightBlockBreakEvent;
@@ -19,6 +20,14 @@ import java.util.Objects;
 
 public class AtmListener extends LightListener {
     @EventHandler
+    public void onInteract(LightBlockInteractEvent e) {
+        if(!Objects.equals(e.getHand(), EquipmentSlot.HAND))
+            return;
+
+        AtmGUI.open(e.getPlayer());
+    }
+
+    @EventHandler
     public void onPlace(LightBlockPlaceEvent e) {
         if(!(e.getBlockPlaced().getItem() instanceof Atm))
             return;
@@ -34,28 +43,6 @@ public class AtmListener extends LightListener {
         }
 
         topBlock.setType(Material.BARRIER);
-    }
-
-    @EventHandler
-    public void onInteract(PlayerInteractEvent e) {
-        if(!Objects.equals(e.getHand(), EquipmentSlot.HAND))
-            return;
-
-        if(e.getClickedBlock() == null)
-            return;
-
-        Location bottomLocation = e.getClickedBlock().getLocation().clone().add(0, -1, 0);
-
-        if(!LightBlock.isLightBlock(bottomLocation))
-            return;
-
-        LightBlock bottomBlock = LightBlock.getFromLocation(bottomLocation);
-        assert bottomBlock != null;
-        if(!(bottomBlock.getItem() instanceof Atm))
-            return;
-
-        LightBlockInteractEvent lightBlockInteractEvent = new LightBlockInteractEvent(bottomBlock, e);
-        Bukkit.getPluginManager().callEvent(lightBlockInteractEvent);
     }
 
     @EventHandler
@@ -89,5 +76,27 @@ public class AtmListener extends LightListener {
             return;
 
         bottomBlock.destroy();
+    }
+
+    @EventHandler
+    public void onBarrierInteract(PlayerInteractEvent e) {
+        if(!Objects.equals(e.getHand(), EquipmentSlot.HAND))
+            return;
+
+        if(e.getClickedBlock() == null)
+            return;
+
+        Location bottomLocation = e.getClickedBlock().getLocation().clone().add(0, -1, 0);
+
+        if(!LightBlock.isLightBlock(bottomLocation))
+            return;
+
+        LightBlock bottomBlock = LightBlock.getFromLocation(bottomLocation);
+        assert bottomBlock != null;
+        if(!(bottomBlock.getItem() instanceof Atm))
+            return;
+
+        LightBlockInteractEvent lightBlockInteractEvent = new LightBlockInteractEvent(bottomBlock, e);
+        Bukkit.getPluginManager().callEvent(lightBlockInteractEvent);
     }
 }

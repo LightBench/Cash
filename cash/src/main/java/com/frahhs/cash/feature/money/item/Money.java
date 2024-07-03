@@ -1,5 +1,6 @@
 package com.frahhs.cash.feature.money.item;
 
+import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.item.LightItem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,6 +9,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
 
 public class Money extends LightItem {
     private final String identifier;
@@ -78,5 +84,16 @@ public class Money extends LightItem {
     @Override
     public @NotNull Material getVanillaMaterial() {
         return this.vanillaMaterial;
+    }
+
+    public static List<Money> getMoney() {
+        List<Money> money = new ArrayList<>();
+        for(LightItem item : LightPlugin.getItemsManager().getRegisteredItems()) {
+            if(item instanceof Money) {
+                money.add((Money) item);
+            }
+        }
+
+        return money.stream().sorted(Comparator.comparing(Money::getValue).reversed()).toList();
     }
 }

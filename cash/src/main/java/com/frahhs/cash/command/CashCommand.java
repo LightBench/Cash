@@ -10,10 +10,15 @@ import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.item.ItemManager;
 import com.frahhs.lightlib.item.LightItem;
 import com.frahhs.lightlib.provider.MessagesProvider;
+import net.wesjd.anvilgui.AnvilGUI;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Inventory;
 import org.checkerframework.common.value.qual.IntRange;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 @CommandAlias("cash")
 @Description("Plugin main command")
@@ -29,6 +34,14 @@ public class CashCommand extends BaseCommand {
     @Description("Show all the commands.")
     public void onBase(Player player, CommandHelp help) {
         help.showHelp();
+    }
+
+    @Subcommand("test")
+    @CommandPermission("cash.admin")
+    @Description("Reload the configuration of the plugin.")
+    public void onTest(Player player, @Single String name) {
+        Inventory gui =  Bukkit.createInventory(null, 6*9, name);
+        player.openInventory(gui);
     }
 
     @Subcommand("reload")

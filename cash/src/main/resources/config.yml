@@ -63,25 +63,25 @@ money:
   items:
     1_dollars:
       name: "1$"
-      value: 1
+      value: 1.0
       custom-model-data: 3001
     5_dollars:
       name: "5$"
-      value: 5
+      value: 5.0
       custom-model-data: 3005
     10_dollars:
       name: "10$"
-      value: 10
+      value: 10.0
       custom-model-data: 3010
     20_dollars:
       name: "20$"
-      value: 20
+      value: 20.0
       custom-model-data: 3020
     50_dollars:
       name: "50$"
-      value: 50
+      value: 50.0
       custom-model-data: 3050
     100_dollars:
       name: "100$"
-      value: 100
+      value: 100.0
       custom-model-data: 3100

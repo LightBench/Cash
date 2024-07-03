@@ -1,6 +1,7 @@
-package com.frahhs.cash.feature.wallet.item;
+package com.frahhs.cash.feature.wallet.listener;
 
 import com.frahhs.cash.feature.money.item.Money;
+import com.frahhs.cash.feature.wallet.item.Wallet;
 import com.frahhs.cash.feature.wallet.mcp.WalletInventory;
 import com.frahhs.cash.feature.wallet.mcp.WalletInventoryController;
 import com.frahhs.lightlib.LightListener;
@@ -9,6 +10,7 @@ import com.frahhs.lightlib.item.ItemManager;
 import com.frahhs.lightlib.item.LightItem;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
@@ -27,12 +29,14 @@ public class WalletInventoryListener extends LightListener {
         if(!e.getHand().equals(EquipmentSlot.HAND))
             return;
 
+        if(!(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)))
+            return;
+
         ItemManager itemManager = LightPlugin.getItemsManager();
         if(!itemManager.isRegistered(e.getItem()))
             return;
 
         LightItem item = itemManager.get(e.getItem());
-
         if(!(item instanceof Wallet))
             return;
 

@@ -1,6 +1,7 @@
 package com.frahhs.cash;
 
 import com.frahhs.cash.command.CashCommand;
+import com.frahhs.cash.dependency.vault.VaultManager;
 import com.frahhs.cash.feature.atm.AtmFeature;
 import com.frahhs.cash.feature.money.MoneyFeature;
 import com.frahhs.cash.feature.wallet.WalletFeature;
@@ -23,6 +24,9 @@ public final class Cash extends LightPlugin {
     //TODO: add a gui to make money "change"
     @Override
     public void onLightEnabled() {
+        if(!VaultManager.init(this))
+            return;
+
         registerFeatures();
         registerCommands();
     }

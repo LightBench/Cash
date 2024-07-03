@@ -40,7 +40,7 @@ public class MoneyFeature extends LightFeature {
                 if(key.split("\\.").length == 3) {
                     String identifier = key.split("\\.")[key.split("\\.").length -1];
                     String name = LightPlugin.getConfigProvider().getString(key + ".name");
-                    int value = LightPlugin.getConfigProvider().getInt(key + ".value");
+                    double value = LightPlugin.getConfigProvider().getDouble(key + ".value");
                     int customModelData = LightPlugin.getConfigProvider().getInt(key + ".custom-model-data");
 
                     assert name != null;
