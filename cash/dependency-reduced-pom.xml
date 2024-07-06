@@ -36,6 +36,10 @@
                   <pattern>net.wesjd.anvilgui</pattern>
                   <shadedPattern>com.frahhs.anvilgui</shadedPattern>
                 </relocation>
+                <relocation>
+                  <pattern>de.themoep</pattern>
+                  <shadedPattern>com.frahhs.inventorygui</shadedPattern>
+                </relocation>
               </relocations>
               <filters>
                 <filter>
@@ -68,6 +72,10 @@
     <repository>
       <id>codemc-snapshots</id>
       <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+    </repository>
+    <repository>
+      <id>minebench-repo</id>
+      <url>https://repo.minebench.de/</url>
     </repository>
   </repositories>
   <dependencies>

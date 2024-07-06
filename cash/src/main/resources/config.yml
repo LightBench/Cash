@@ -61,6 +61,10 @@ database:
 
 money:
   items:
+    50_cent:
+      name: "50 cent"
+      value: 0.5
+      custom-model-data: 3091
     1_dollars:
       name: "1$"
       value: 1.0

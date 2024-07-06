@@ -6,19 +6,14 @@ import com.acf.CommandHelp;
 import com.acf.annotation.*;
 import com.acf.bukkit.contexts.OnlinePlayer;
 import com.frahhs.cash.Cash;
+import com.frahhs.cash.feature.money.gui.ChangeGUI;
 import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.item.ItemManager;
 import com.frahhs.lightlib.item.LightItem;
 import com.frahhs.lightlib.provider.MessagesProvider;
-import net.wesjd.anvilgui.AnvilGUI;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.checkerframework.common.value.qual.IntRange;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 @CommandAlias("cash")
 @Description("Plugin main command")
@@ -36,14 +31,6 @@ public class CashCommand extends BaseCommand {
         help.showHelp();
     }
 
-    @Subcommand("test")
-    @CommandPermission("cash.admin")
-    @Description("Reload the configuration of the plugin.")
-    public void onTest(Player player, @Single String name) {
-        Inventory gui =  Bukkit.createInventory(null, 6*9, name);
-        player.openInventory(gui);
-    }
-
     @Subcommand("reload")
     @CommandPermission("cash.reload")
     @Description("Reload the configuration of the plugin.")
@@ -51,6 +38,13 @@ public class CashCommand extends BaseCommand {
         Cash.getInstance().onReload();
         String message = messages.getMessage("commands.reload");
         player.sendMessage(message);
+    }
+
+    @Subcommand("change")
+    @CommandPermission("cash.change")
+    @Description("Show the money change gui.")
+    public void onTest(Player player) {
+        new ChangeGUI().show(player);
     }
 
     @Subcommand("give")

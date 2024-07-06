@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -46,7 +47,7 @@ public class WalletInventoryListener extends LightListener {
 
     @EventHandler
     public void onWalletUpdate(InventoryClickEvent e) {
-        if(!(e.getInventory().getHolder() instanceof WalletInventory))
+        if(!(e.getInventory().getHolder() instanceof WalletInventory walletInventory))
             return;
 
         boolean isMoney = LightPlugin.getItemsManager().get(e.getCurrentItem()) instanceof Money;
@@ -64,9 +65,16 @@ public class WalletInventoryListener extends LightListener {
             return;
         }
 
-        WalletInventory walletInventory = (WalletInventory) e.getInventory().getHolder();
         WalletInventoryController controller = new WalletInventoryController();
-        assert walletInventory != null;
+        controller.updateInventory(walletInventory.getWallet(), e.getInventory().getContents());
+    }
+
+    @EventHandler
+    public void onWalletClose(InventoryCloseEvent e) {
+        if(!(e.getInventory().getHolder() instanceof WalletInventory walletInventory))
+            return;
+
+        WalletInventoryController controller = new WalletInventoryController();
         controller.updateInventory(walletInventory.getWallet(), e.getInventory().getContents());
     }
 }

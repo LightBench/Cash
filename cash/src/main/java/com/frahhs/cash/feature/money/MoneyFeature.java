@@ -1,16 +1,13 @@
 package com.frahhs.cash.feature.money;
 
+import com.frahhs.cash.feature.money.gui.ChangeGUIListener;
 import com.frahhs.cash.feature.money.item.Money;
+import com.frahhs.cash.feature.money.gui.ChangeGUI;
 import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.feature.LightFeature;
-import com.frahhs.lightlib.item.LightItem;
 import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 public class MoneyFeature extends LightFeature {
     @Override
@@ -25,7 +22,7 @@ public class MoneyFeature extends LightFeature {
 
     @Override
     protected void registerEvents(JavaPlugin javaPlugin) {
-
+        javaPlugin.getServer().getPluginManager().registerEvents(new ChangeGUIListener(), javaPlugin);
     }
 
     @Override
