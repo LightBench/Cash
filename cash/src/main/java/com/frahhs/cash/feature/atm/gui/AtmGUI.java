@@ -1,4 +1,4 @@
-package com.frahhs.cash.feature.atm.mcp;
+package com.frahhs.cash.feature.atm.gui;
 
 import com.frahhs.cash.Cash;
 import com.frahhs.cash.dependency.vault.VaultManager;
@@ -12,11 +12,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class AtmGUI {
 

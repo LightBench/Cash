@@ -129,31 +129,24 @@ public class ChangeGUIListener extends LightListener {
 
     @EventHandler(priority = EventPriority.NORMAL)
     public void onMoveToOtherInventory(InventoryClickEvent e) {
-        System.out.println("here1");
         if(e.getClickedInventory() == null)
             return;
 
-        System.out.println("here2");
         if(!(e.getInventory().getHolder() instanceof ChangeGUI gui))
             return;
 
-        System.out.println("here3");
         if(e.getAction() != InventoryAction.MOVE_TO_OTHER_INVENTORY)
             return;
 
-        System.out.println("here4");
         if(e.getClickedInventory() == e.getInventory())
             return;
 
-        System.out.println("here5");
         if(gui.getFirstEmptySlot() == null)
             return;
 
-        System.out.println("here6");
         if(gui.isStorageSlot(gui.getFirstEmptySlot()))
             return;
 
-        System.out.println("here7");
         for(int slot : gui.getStorageSlots()) {
             if (gui.getInventory().getItem(slot) != null) {
                 if (gui.getInventory().getItem(slot).isSimilar(e.getCurrentItem())) {
@@ -165,17 +158,14 @@ public class ChangeGUIListener extends LightListener {
             }
         }
 
-        System.out.println("here8");
         if(gui.getFirstEmptyStorageSlot() == null) {
             e.setCancelled(true);
             return;
         }
 
-        System.out.println("here9");
         if(gui.isStorageSlot(gui.getFirstEmptySlot()))
             return;
 
-        System.out.println("here10");
         e.setCancelled(true);
         gui.getInventory().setItem(gui.getFirstEmptyStorageSlot(), e.getCurrentItem().clone());
         e.getClickedInventory().setItem(e.getSlot(), null);

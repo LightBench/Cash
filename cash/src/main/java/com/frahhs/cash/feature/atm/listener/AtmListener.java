@@ -1,7 +1,7 @@
 package com.frahhs.cash.feature.atm.listener;
 
 import com.frahhs.cash.feature.atm.item.Atm;
-import com.frahhs.cash.feature.atm.mcp.AtmGUI;
+import com.frahhs.cash.feature.atm.gui.AtmGUI;
 import com.frahhs.lightlib.LightListener;
 import com.frahhs.lightlib.block.LightBlock;
 import com.frahhs.lightlib.block.events.LightBlockBreakEvent;
