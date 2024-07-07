@@ -12,6 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -21,8 +22,20 @@ import java.util.Objects;
 public class AtmListener extends LightListener {
     @EventHandler
     public void onInteract(LightBlockInteractEvent e) {
+        if(!(e.getBlock().getItem() instanceof Atm))
+            return;
+
         if(!Objects.equals(e.getHand(), EquipmentSlot.HAND))
             return;
+
+        if(e.getAction() != Action.RIGHT_CLICK_BLOCK)
+            return;
+
+        if(!e.getPlayer().hasPermission("cash.atm")) {
+            String message = messages.getMessage("general.no_permission");
+            e.getPlayer().sendMessage(message);
+            return;
+        }
 
         AtmGUI.open(e.getPlayer());
     }
@@ -81,6 +94,9 @@ public class AtmListener extends LightListener {
     @EventHandler
     public void onBarrierInteract(PlayerInteractEvent e) {
         if(!Objects.equals(e.getHand(), EquipmentSlot.HAND))
+            return;
+
+        if(e.getAction() != Action.RIGHT_CLICK_BLOCK)
             return;
 
         if(e.getClickedBlock() == null)

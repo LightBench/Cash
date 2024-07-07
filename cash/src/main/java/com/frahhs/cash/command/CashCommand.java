@@ -43,7 +43,7 @@ public class CashCommand extends BaseCommand {
     @Subcommand("change")
     @CommandPermission("cash.change")
     @Description("Show the money change gui.")
-    public void onTest(Player player) {
+    public void onChange(Player player) {
         new ChangeGUI().show(player);
     }
 

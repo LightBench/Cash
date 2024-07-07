@@ -35,6 +35,12 @@ public class WalletInventoryListener extends LightListener {
         if(!(item instanceof Wallet))
             return;
 
+        if(!e.getPlayer().hasPermission("cash.wallet")) {
+            String message = messages.getMessage("general.no_permission_item");
+            e.getPlayer().sendMessage(message);
+            return;
+        }
+
         WalletInventoryController controller = new WalletInventoryController();
         controller.openInventory(e.getPlayer(), e.getItem());
     }
