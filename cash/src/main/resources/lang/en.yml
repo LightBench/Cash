@@ -13,6 +13,7 @@ wallet:
   only_money: "Only money can be put in the wallet!"
 items_name:
   atm: "Atm"
+  atm_button: "Execute"
   wallet: "Wallet"
 commands:
   reload: "&2Cash reloaded!"

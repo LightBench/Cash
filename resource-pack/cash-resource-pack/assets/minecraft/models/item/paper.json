@@ -1,0 +1,16 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "minecraft:item/paper"
+    },
+    "overrides": [
+      { "predicate": {"custom_model_data": 3001}, "model": "custom:item/1_dollars"},
+      { "predicate": {"custom_model_data": 3005}, "model": "custom:item/5_dollars"},
+      { "predicate": {"custom_model_data": 3010}, "model": "custom:item/10_dollars"},
+      { "predicate": {"custom_model_data": 3020}, "model": "custom:item/20_dollars"},
+      { "predicate": {"custom_model_data": 3050}, "model": "custom:item/50_dollars"},
+      { "predicate": {"custom_model_data": 3091}, "model": "custom:item/50_cent"},
+      { "predicate": {"custom_model_data": 3100}, "model": "custom:item/100_dollars"},
+      { "predicate": {"custom_model_data": 8080}, "model": "custom:item/wallet"}
+    ]
+  }

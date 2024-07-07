@@ -1,0 +1,10 @@
+{
+    "parent": "minecraft:item/handheld",
+    "textures": {
+      "layer0": "minecraft:item/stick"
+    },
+    "overrides": [
+      { "predicate": {"custom_model_data": 8080}, "model": "custom:item/wallet"},
+      { "predicate": {"custom_model_data": 8083}, "model": "custom:item/atm_button"}
+    ]
+  }

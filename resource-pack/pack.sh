@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Main folder
-RESOURCE_PACK_FOLDER="resource-pack"
+RESOURCE_PACK_FOLDER="cash-resource-pack"
 
 # Input file
 PACK_FORMAT_FILE="pack-format.yml"

@@ -2,8 +2,10 @@ package com.frahhs.cash.feature.atm.gui;
 
 import com.frahhs.cash.Cash;
 import com.frahhs.cash.dependency.vault.VaultManager;
+import com.frahhs.cash.feature.atm.item.AtmButton;
 import com.frahhs.cash.feature.money.item.Money;
 import com.frahhs.lightlib.LightPlugin;
+import com.frahhs.lightlib.item.ItemManager;
 import net.milkbowl.vault.economy.EconomyResponse;
 import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Material;
@@ -19,17 +21,9 @@ import java.util.Map;
 public class AtmGUI {
 
     public static void open(Player player) {
-        ItemStack deposit = new ItemStack(Material.DIAMOND_BLOCK);
-        ItemMeta depositMeta = deposit.getItemMeta();
-        assert depositMeta != null;
-        depositMeta.setDisplayName("Deposit");
-        deposit.setItemMeta(depositMeta);
-
-        ItemStack withdraw = new ItemStack(Material.DIAMOND_BLOCK);
-        ItemMeta withdrawMeta = deposit.getItemMeta();
-        assert withdrawMeta != null;
-        withdrawMeta.setDisplayName("Withdraw");
-        withdraw.setItemMeta(withdrawMeta);
+        ItemManager itemManager = LightPlugin.getItemsManager();
+        ItemStack deposit = itemManager.get(AtmButton.class).getItemStack();
+        ItemStack withdraw = itemManager.get(AtmButton.class).getItemStack();
 
         new AnvilGUI.Builder().onClick(AtmGUI::onClick)
                               .plugin(Cash.getInstance())
@@ -116,17 +110,9 @@ public class AtmGUI {
     }
 
     private static void restoreButtons(Inventory anvilInventory) {
-        ItemStack deposit = new ItemStack(Material.GOLD_BLOCK);
-        ItemMeta depositMeta = deposit.getItemMeta();
-        assert depositMeta != null;
-        depositMeta.setDisplayName("Deposit");
-        deposit.setItemMeta(depositMeta);
-
-        ItemStack withdraw = new ItemStack(Material.DIAMOND_BLOCK);
-        ItemMeta withdrawMeta = deposit.getItemMeta();
-        assert withdrawMeta != null;
-        withdrawMeta.setDisplayName("Withdraw");
-        withdraw.setItemMeta(withdrawMeta);
+        ItemManager itemManager = LightPlugin.getItemsManager();
+        ItemStack deposit = itemManager.get(AtmButton.class).getItemStack();
+        ItemStack withdraw = itemManager.get(AtmButton.class).getItemStack();
 
         anvilInventory.setItem(AnvilGUI.Slot.INPUT_LEFT, deposit);
         anvilInventory.setItem(AnvilGUI.Slot.OUTPUT, withdraw);

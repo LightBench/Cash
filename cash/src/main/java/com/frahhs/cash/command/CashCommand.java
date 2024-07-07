@@ -1,10 +1,10 @@
 package com.frahhs.cash.command;
 
 
-import com.acf.BaseCommand;
-import com.acf.CommandHelp;
-import com.acf.annotation.*;
-import com.acf.bukkit.contexts.OnlinePlayer;
+import com.frahhs.aikar.commands.BaseCommand;
+import com.frahhs.aikar.commands.CommandHelp;
+import com.frahhs.aikar.commands.annotation.*;
+import com.frahhs.aikar.commands.bukkit.contexts.OnlinePlayer;
 import com.frahhs.cash.Cash;
 import com.frahhs.cash.feature.money.gui.ChangeGUI;
 import com.frahhs.lightlib.LightPlugin;
