@@ -4,3 +4,18 @@ author: FrahHS
 main: com.frahhs.cash.Cash
 api-version: '1.19'
 softdepend: [Vault]
+permissions:
+  cash.help:
+    description: Allow to use /cash help
+  cash.reload:
+    description: Allow to use /cash reload
+  cash.give:
+    description: Allow to use /cash give
+  cash.change:
+    description: Allow to use /cash change
+  cash.atm:
+    description: Allow to use the atm
+  cash.wallet:
+    description: Allow to use the wallet
+  cash.craft.*:
+    description: Allow to craft all items

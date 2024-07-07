@@ -7,6 +7,7 @@ import com.frahhs.aikar.commands.annotation.*;
 import com.frahhs.aikar.commands.bukkit.contexts.OnlinePlayer;
 import com.frahhs.cash.Cash;
 import com.frahhs.cash.feature.money.gui.ChangeGUI;
+import com.frahhs.cash.menu.DashboardMenu;
 import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.item.ItemManager;
 import com.frahhs.lightlib.item.LightItem;
@@ -38,6 +39,13 @@ public class CashCommand extends BaseCommand {
         Cash.getInstance().onReload();
         String message = messages.getMessage("commands.reload");
         player.sendMessage(message);
+    }
+
+    @Subcommand("menu")
+    @CommandPermission("git robbing.admin")
+    @Description("Open a gui to change some settings.")
+    public void onMenu(Player player) {
+        DashboardMenu.open(player, Cash.getInstance());
     }
 
     @Subcommand("change")
