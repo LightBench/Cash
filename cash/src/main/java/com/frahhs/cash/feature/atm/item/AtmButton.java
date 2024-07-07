@@ -13,7 +13,7 @@ public class AtmButton extends LightItem {
 
     @Override
     public int getCustomModelData() {
-        return 8083;
+        return 896;
     }
 
     @Override
@@ -33,6 +33,6 @@ public class AtmButton extends LightItem {
 
     @Override
     public @NotNull Material getVanillaMaterial() {
-        return Material.STICK;
+        return Material.BRICK;
     }
 }

@@ -21,6 +21,9 @@ import java.util.Map;
 public class ChangeGUIListener extends LightListener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onButtonClick(InventoryClickEvent e) {
+        if(e.getClickedInventory() == null)
+            return;
+
         if(!(e.getClickedInventory().getHolder() instanceof ChangeGUI gui))
             return;
 

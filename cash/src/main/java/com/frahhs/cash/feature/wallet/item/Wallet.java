@@ -1,7 +1,5 @@
 package com.frahhs.cash.feature.wallet.item;
 
-import com.frahhs.cash.feature.wallet.database.WalletDatabase;
-import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.item.LightItem;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -23,7 +21,7 @@ public class Wallet extends LightItem {
 
     @Override
     public int getCustomModelData() {
-        return 8080;
+        return 895;
     }
 
     @Override
@@ -51,7 +49,7 @@ public class Wallet extends LightItem {
 
     @Override
     public @NotNull Material getVanillaMaterial() {
-        return Material.STICK;
+        return Material.BRICK;
     }
 
     public static UUID getUUID(JavaPlugin plugin, ItemStack itemStack) {

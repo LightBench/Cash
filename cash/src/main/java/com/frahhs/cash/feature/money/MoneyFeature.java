@@ -2,7 +2,6 @@ package com.frahhs.cash.feature.money;
 
 import com.frahhs.cash.feature.money.gui.ChangeGUIListener;
 import com.frahhs.cash.feature.money.item.Money;
-import com.frahhs.cash.feature.money.gui.ChangeGUI;
 import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.feature.LightFeature;
 import org.bukkit.Material;

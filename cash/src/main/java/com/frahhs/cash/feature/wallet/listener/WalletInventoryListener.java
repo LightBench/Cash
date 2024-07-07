@@ -8,18 +8,12 @@ import com.frahhs.lightlib.LightListener;
 import com.frahhs.lightlib.LightPlugin;
 import com.frahhs.lightlib.item.ItemManager;
 import com.frahhs.lightlib.item.LightItem;
-import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.Inventory;
-
-import java.util.Arrays;
 
 public class WalletInventoryListener extends LightListener {
     @EventHandler
